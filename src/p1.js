@@ -1,6 +1,6 @@
-const p1Meter = require('node-dsmr');
+const Dsmr = require('node-dsmr');
 
-const p1Meter = new p1Meter({
+const p1Meter = new Dsmr({
     port: '/dev/ttyUSB0',
     bps: 9600,
     bits: 7,
