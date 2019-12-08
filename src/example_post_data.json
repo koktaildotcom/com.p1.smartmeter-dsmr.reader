@@ -1,36 +1,129 @@
 {
+	"meterType": "ISk5\2MT382-1000",
+	"version": "42",
+	"timestamp": "2010-12-09T10:30:20.000Z",
+	"equipmentId": "4B384547303034303436333935353037",
+	"textMessage": {
+		"codes": "3031203631203831",
+		"message": "0123456789:;<=>?0123456789:;<=>?0123456789:;<=>?0123456789:;<=>?0123456789:;<=>?"
+	},
 	"electricity": {
-		"delivered": {
+		"received": {
+			"tariff1": {
+				"reading": 123456.789,
+				"unit": "kWh"
+			},
 			"tariff2": {
-				"reading": 0,
+				"reading": 123456.789,
 				"unit": "kWh"
 			},
 			"actual": {
-				"reading": 0,
+				"reading": 1.193,
 				"unit": "kW"
-			},
-			"tariff1": {
-				"reading": 0,
-				"unit": "kWh"
 			}
 		},
-		"received": {
+		"delivered": {
+			"tariff1": {
+				"reading": 123456.789,
+				"unit": "kWh"
+			},
 			"tariff2": {
-				"reading": 0,
+				"reading": 123456.789,
 				"unit": "kWh"
 			},
 			"actual": {
 				"reading": 0,
 				"unit": "kW"
+			}
+		},
+		"tariffIndicator": 2,
+		"threshold": {
+			"value": 16.1,
+			"unit": "kW"
+		},
+		"switchPosition": "1",
+		"numberOfPowerFailures": 4,
+		"numberOfLongPowerFailures": 2,
+		"longPowerFailureLog": {
+			"count": 2,
+			"log": [
+				{
+					"startOfFailure": "2010-12-08T14:20:15.000Z",
+					"endOfFailure": "2010-12-08T14:24:15.000Z",
+					"duration": 240,
+					"unit": "s"
+				},
+				{
+					"startOfFailure": "2010-12-08T14:05:03.000Z",
+					"endOfFailure": "2010-12-08T14:10:04.000Z",
+					"duration": 301,
+					"unit": "s"
+				}
+			]
+		},
+		"voltageSags": {
+			"L1": 2,
+			"L2": 1,
+			"L3": 0
+		},
+		"voltageSwell": {
+			"L1": 0,
+			"L2": 3,
+			"L3": 0
+		},
+		"instantaneous": {
+			"current": {
+				"L1": {
+					"reading": 1,
+					"unit": "A"
+				},
+				"L2": {
+					"reading": 2,
+					"unit": "A"
+				},
+				"L3": {
+					"reading": 3,
+					"unit": "A"
+				}
 			},
-			"tariff1": {
-				"reading": 0,
-				"unit": "kWh"
+			"power": {
+				"positive": {
+					"L1": {
+						"reading": 1.111,
+						"unit": "kW"
+					},
+					"L2": {
+						"reading": 2.222,
+						"unit": "kW"
+					},
+					"L3": {
+						"reading": 3.333,
+						"unit": "kW"
+					}
+				},
+				"negative": {
+					"L1": {
+						"reading": 4.444,
+						"unit": "kW"
+					},
+					"L2": {
+						"reading": 5.555,
+						"unit": "kW"
+					},
+					"L3": {
+						"reading": 6.666,
+						"unit": "kW"
+					}
+				}
 			}
 		}
 	},
 	"gas": {
-		"reading": 0,
-		"unit": "m3"
+		"deviceType": "003",
+		"equipmentId": "3232323241424344313233343536373839",
+		"timestamp": "2010-12-09T10:00:00.000Z",
+		"reading": 12785.123,
+		"unit": "m3",
+		"valvePosition": "1"
 	}
 }
