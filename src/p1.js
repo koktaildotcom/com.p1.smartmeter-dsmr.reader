@@ -107,15 +107,15 @@ function publishToHomey (output) {
                     },
                     'negative': {
                         'L1': {
-                            'reading': output.power.instantaneousProducedElectricityL1,
+                            'reading': output.power.instantaneousConsumedElectricityL1,
                             'unit': 'kW',
                         },
                         'L2': {
-                            'reading': output.power.instantaneousProducedElectricityL2,
+                            'reading': output.power.instantaneousConsumedElectricityL2,
                             'unit': 'kW',
                         },
                         'L3': {
-                            'reading': output.power.instantaneousProducedElectricityL3,
+                            'reading': output.power.instantaneousConsumedElectricityL3,
                             'unit': 'kW',
                         },
                     },
