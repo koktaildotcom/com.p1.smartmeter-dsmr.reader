@@ -1,0 +1,36 @@
+{
+	"electricity": {
+		"delivered": {
+			"tariff2": {
+				"reading": 0,
+				"unit": "kWh"
+			},
+			"actual": {
+				"reading": 0,
+				"unit": "kW"
+			},
+			"tariff1": {
+				"reading": 0,
+				"unit": "kWh"
+			}
+		},
+		"received": {
+			"tariff2": {
+				"reading": 0,
+				"unit": "kWh"
+			},
+			"actual": {
+				"reading": 0,
+				"unit": "kW"
+			},
+			"tariff1": {
+				"reading": 0,
+				"unit": "kWh"
+			}
+		}
+	},
+	"gas": {
+		"reading": 0,
+		"unit": "m3"
+	}
+}
