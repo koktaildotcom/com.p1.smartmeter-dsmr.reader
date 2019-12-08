@@ -29,7 +29,6 @@ const homeyHost2 = 'https://' + homeyId2 + '.connect.athom.com/api/app/com.p1'
 function publishToHomey (output) {
     const data = {
         "meterType": output.meterModel,
-        "equipmentId": output.power.equipmentId,
         "version": output.dsmrVersion,
         "timestamp": output.dsmrVersion,
         "electricity": {
