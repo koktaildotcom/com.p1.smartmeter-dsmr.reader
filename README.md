@@ -1,6 +1,5 @@
 # Homey p1 smartmeter DSMR reader for [com.p1.smartmeter ](https://github.com/koktaildotcom/com.p1.smartmeter)
 
-
 ## Introduction
 This package can be used to post data about usage gas and received/delivered electricity to the homey app [com.p1.smartmeter ](https://github.com/koktaildotcom/com.p1.smartmeter)
 And it is based on the [node-dsmr](https://github.com/reneklootwijk/node-dsmr) library.
@@ -60,8 +59,10 @@ const parity = 'none';
 
 `node p1.js`
 
+You can use a process manager like `pm2` to run the script on boot.
 
-## History
+
+### History
 
 ### v1.0.0 - 08.12.2019
 - initial commit
