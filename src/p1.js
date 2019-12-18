@@ -124,6 +124,11 @@ function publishToHomey (output) {
         }
     }
 
+    // backwards compatibility
+    data.gas = {
+        'reading': null
+    }
+
     if (output.gas) {
         data.gas = {
             'deviceType': '003',
@@ -167,14 +172,14 @@ p1Meter.on('connected', () => {
     logger.info('p1 smartmeter is connected!')
 })
 
-p1Meter.on('update', line => {
-    if (line.hasOwnProperty('gas')) {
+p1Meter.on('telegram', telegram => {
+    if (telegram.hasOwnProperty('gas')) {
         logger.info('p1 smartmeter update gas')
-        publishToHomey(line)
+        publishToHomey(telegram)
     }
-    if (line.hasOwnProperty('power')) {
+    if (telegram.hasOwnProperty('power')) {
         logger.info('p1 smartmeter update power')
-        publishToHomey(line)
+        publishToHomey(telegram)
     }
 })
 
