@@ -21,8 +21,10 @@ const bps = 115200
 const bits = 8
 const parity = 'none'
 
-const homeyEndpoint = '/update'
-const homeyHost = 'https://' + homeyId + '.connect.athom.com/api/app/com.p1'
+const homeyEndpoint = '/api/app/com.p1/update'
+const homeyHosts = [
+    'https://' + homeyId + '.connect.athom.com'
+]
 
 function publishToHomey (output) {
     const data = {
@@ -124,7 +126,7 @@ function publishToHomey (output) {
 
     // backwards compatibility
     data.gas = {
-        'reading': null
+        'reading': null,
     }
 
     if (output.gas) {
@@ -138,15 +140,17 @@ function publishToHomey (output) {
         }
     }
 
-    fetch(homeyHost + homeyEndpoint, {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: {'Content-Type': 'application/json'},
-    }).then(() => {
-        // posted to homey!
-    }).catch((error) => {
-        logger.error(error)
-    })
+    for (const homeyHost of homeyHosts) {
+        fetch(homeyHost + homeyEndpoint, {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'},
+        }).then(() => {
+            logger.info('posted successfully to: ' + homeyHost + homeyEndpoint)
+        }).catch((error) => {
+            logger.error(error)
+        })
+    }
 }
 
 const p1Meter = new dsmr({
