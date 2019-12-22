@@ -45,7 +45,7 @@ function publishToHomey (output) {
                     'unit': 'kWh',
                 },
                 'actual': {
-                    'reading': output.power.totalConsumed,
+                    'reading': output.power.actualConsumed,
                     'unit': 'kW',
                 },
             },
