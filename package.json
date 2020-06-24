@@ -1,22 +1,30 @@
 {
-  "name": "com.p1.smartmeter-dsmr.reader",
-  "version": "1.0.0",
-  "description": "Script to parse DSMR data into the com.p1.smartmeter Homey app",
-  "main": "src/p1.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader.git"
-  },
-  "author": "Leendert de Kok",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader/issues"
-  },
-  "homepage": "https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader#readme",
-  "dependencies": {
-    "node-dsmr": "^0.1.4"
-  }
+	"name": "com.p1.smartmeter-dsmr.reader",
+	"version": "1.0.0",
+	"description": "Script to parse DSMR data into the com.p1.smartmeter Homey app",
+	"main": "src/p1.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"bin": {
+		"p1": "src/p1.js"
+	},
+	"engines": {
+		"node": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader.git"
+	},
+	"author": "Leendert de Kok",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader/issues"
+	},
+	"homepage": "https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader#readme",
+	"dependencies": {
+		"bluebird": "^3.7.2",
+		"node-dsmr": "^0.1.4",
+		"node-fetch": "^2.6.0"
+	}
 }
