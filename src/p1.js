@@ -30,7 +30,7 @@ function publishToHomey (output) {
     const data = {
         'meterType': output.meterModel,
         'version': output.dsmrVersion,
-        'timestamp': output.dsmrVersion,
+        'timestamp': output.timestamp,
     }
 
     if (output.power) {
@@ -137,6 +137,7 @@ function publishToHomey (output) {
             'reading': output.gas.totalConsumed,
             'unit': 'm3',
             'valvePosition': output.gas.valvePosition,
+            'reportedPeriod': output.gas.reportedPeriod
         }
     }
 
