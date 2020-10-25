@@ -166,12 +166,8 @@ p1Meter.on('connected', () => {
 })
 
 p1Meter.on('telegram', telegram => {
-    if (telegram.hasOwnProperty('gas')) {
-        logger.info('p1 smartmeter update gas')
-        publishToHomey(telegram)
-    }
-    if (telegram.hasOwnProperty('power')) {
-        logger.info('p1 smartmeter update power')
+    if (telegram.hasOwnProperty('gas') || telegram.hasOwnProperty('power')) {
+        logger.info('p1 smartmeter update gas or power')
         publishToHomey(telegram)
     }
 })
