@@ -30,7 +30,7 @@ function publishToHomey (output) {
     const data = {
         'meterType': output.meterModel,
         'version': output.dsmrVersion,
-        'timestamp': output.dsmrVersion,
+        'timestamp': output.timestamp,
     }
 
     if (output.power) {
@@ -86,40 +86,40 @@ function publishToHomey (output) {
                         'unit': 'A',
                     },
                     'L3': {
-                        'reading': output.power.instantaneousCurrentL3,
-                        'unit': 'A',
-                    },
-                },
-                'power': {
-                    'positive': {
-                        'L1': {
-                            'reading': output.power.instantaneousProducedElectricityL1,
-                            'unit': 'kW',
-                        },
-                        'L2': {
-                            'reading': output.power.instantaneousProducedElectricityL2,
-                            'unit': 'kW',
-                        },
-                        'L3': {
-                            'reading': output.power.instantaneousProducedElectricityL3,
-                            'unit': 'kW',
-                        },
-                    },
-                    'negative': {
-                        'L1': {
-                            'reading': output.power.instantaneousConsumedElectricityL1,
-                            'unit': 'kW',
-                        },
-                        'L2': {
-                            'reading': output.power.instantaneousConsumedElectricityL2,
-                            'unit': 'kW',
-                        },
-                        'L3': {
-                            'reading': output.power.instantaneousConsumedElectricityL3,
-                            'unit': 'kW',
-                        },
-                    },
-                },
+            'reading': output.power.instantaneousCurrentL3,
+            'unit': 'A',
+          },
+        },
+        'power': {
+          'positive': {
+            'L1': {
+              'reading': output.power.instantaneousConsumedElectricityL1,
+              'unit': 'kW',
+            },
+            'L2': {
+              'reading': output.power.instantaneousConsumedElectricityL2,
+              'unit': 'kW',
+            },
+            'L3': {
+              'reading': output.power.instantaneousConsumedElectricityL3,
+              'unit': 'kW',
+            },
+          },
+          'negative': {
+            'L1': {
+              'reading': output.power.instantaneousProducedElectricityL1,
+              'unit': 'kW',
+            },
+            'L2': {
+              'reading': output.power.instantaneousProducedElectricityL2,
+              'unit': 'kW',
+            },
+            'L3': {
+              'reading': output.power.instantaneousProducedElectricityL3,
+              'unit': 'kW',
+            },
+          },
+        },
             },
         }
     }
@@ -137,6 +137,7 @@ function publishToHomey (output) {
             'reading': output.gas.totalConsumed,
             'unit': 'm3',
             'valvePosition': output.gas.valvePosition,
+            'reportedPeriod': output.gas.reportedPeriod
         }
     }
 
@@ -165,12 +166,8 @@ p1Meter.on('connected', () => {
 })
 
 p1Meter.on('telegram', telegram => {
-    if (telegram.hasOwnProperty('gas')) {
-        logger.info('p1 smartmeter update gas')
-        publishToHomey(telegram)
-    }
-    if (telegram.hasOwnProperty('power')) {
-        logger.info('p1 smartmeter update power')
+    if (telegram.hasOwnProperty('gas') || telegram.hasOwnProperty('power')) {
+        logger.info('p1 smartmeter update gas or power')
         publishToHomey(telegram)
     }
 })
