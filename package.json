@@ -1,6 +1,6 @@
 {
 	"name": "com.p1.smartmeter-dsmr.reader",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Script to parse DSMR data into the com.p1.smartmeter Homey app",
 	"main": "src/p1.js",
 	"scripts": {

@@ -67,6 +67,9 @@ You can use a process manager like `pm2` to run the script on boot.
 ### v1.0.0 - 08.12.2019
 - initial commit
 
+### v2.0.0 - 29-10-2020
+- fix bug and flip produced/consumed
+
 ## Final note ##
 The repository is available at: https://github.com/koktaildotcom/com.p1.smartmeter-dsmr.reader
 
