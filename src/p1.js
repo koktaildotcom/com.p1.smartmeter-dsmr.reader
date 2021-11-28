@@ -157,7 +157,7 @@ function publishToHomey (output) {
 const p1Meter = new dsmr({
     port: usbPort,
     baudrate: bps,
-    bits: bits,
+    databits: bits,
     parity: parity,
 })
 
