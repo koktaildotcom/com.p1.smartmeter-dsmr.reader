@@ -25,6 +25,6 @@
 	"dependencies": {
 		"bluebird": "^3.7.2",
 		"node-dsmr": "^0.1.4",
-		"node-fetch": "^2.6.1"
+		"node-fetch": "^3.1.1"
 	}
 }
