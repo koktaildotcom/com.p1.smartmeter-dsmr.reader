@@ -7,11 +7,11 @@ logger.add(new logger.transports.Console({
 }))
 
 /**
- * 1: Goto: http://developer.athom.com
+ * 1: Go to: https://tools.developer.homey.app/
  * 2: Login into Homey
- * 3: Open the inspector (chrome f12)
+ * 3: Open the inspector (Chrome f12)
  * 4: Click the `network` tab
- * 5: Refresh the page (you see couple of webpages being called)
+ * 5: Open the "Tools" > "System" page
  * 6: Copy the `homeyId` from the url: https://[localId].homey.homeylocal.com/api/manager/system/ping?id=[homeyId]
  */
 const homeyId = '5c....................23'
@@ -93,29 +93,29 @@ function publishToHomey (output) {
         'power': {
           'positive': {
             'L1': {
-              'reading': output.power.instantaneousConsumedElectricityL1 || output.power.actualConsumed || 0,
+              'reading': getDefaultedValue(output.power.instantaneousConsumedElectricityL1, output.power.actualConsumed),
               'unit': 'kW',
             },
             'L2': {
-              'reading': output.power.instantaneousConsumedElectricityL2 || 0,
+              'reading': getDefaultedValue(output.power.instantaneousConsumedElectricityL2),
               'unit': 'kW',
             },
             'L3': {
-              'reading': output.power.instantaneousConsumedElectricityL3 || 0,
+              'reading': getDefaultedValue(output.power.instantaneousConsumedElectricityL3),
               'unit': 'kW',
             },
           },
           'negative': {
             'L1': {
-              'reading': output.power.instantaneousProducedElectricityL1 || output.power.actualProduced || 0,
+              'reading': getDefaultedValue(output.power.instantaneousProducedElectricityL1, output.power.actualProduced),
               'unit': 'kW',
             },
             'L2': {
-              'reading': output.power.instantaneousProducedElectricityL2 || 0,
+              'reading': getDefaultedValue(output.power.instantaneousProducedElectricityL2),
               'unit': 'kW',
             },
             'L3': {
-              'reading': output.power.instantaneousProducedElectricityL3 || 0,
+              'reading': getDefaultedValue(output.power.instantaneousProducedElectricityL3),
               'unit': 'kW',
             },
           },
@@ -152,6 +152,15 @@ function publishToHomey (output) {
             logger.error(error)
         })
     }
+}
+
+function getDefaultedValue(...args) {
+  for (let arg of args) {
+    if (arg !== undefined) {
+      return arg;
+    }
+  }
+  return 0;
 }
 
 const p1Meter = new dsmr({
